@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Detalhes -
+	{{ card.name }}
+	| Pokémon
+{% endblock %}
+
+{% block body %}
+	<div class="container mx-auto px-4 py-8">
+		<div class="flex flex-col items-center justify-center gap-8">
+
+			<div class="flex-shrink-0">
+				<div id="zoom-container" class="max-w-lg mx-auto">
+					<a href="{{ card.images.large }}">
+						<img src="{{ card.images.large }}" alt="{{ card.name }}" class="rounded-lg shadow-lg w-96 h-auto">
+					</a>
+				</div>
+			</div>
+
+			<div class="flex-grow items-center justify-center text-center space-y-8">
+				<h1 class="text-5xl font-bold text-gray-800">{{ card.name }}</h1>
+
+				<ul class="flex-grow items-center justify-center text-center space-y-2 text-lg text-gray-500">
+					<li>
+						<span class="text-sm font-medium block text-gray-500">ID</span>
+						<span class="text-lg font-medium uppercase text-gray-700">{{ card.id }}</span>
+					</li>
+					<li>
+						<span class="text-sm font-medium block text-gray-500">Tipo</span>
+						<span class="text-lg font-medium uppercase text-gray-700">{{ card.types | join(', ') }}</span>
+					</li>
+					<li>
+						<span class="text-sm font-medium block text-gray-500">Fraqueza</span>
+						<span class="text-lg font-medium uppercase text-gray-700">{{ card.weaknesses | map(w => w.type) | join(', ') }}</span>
+					</li>
+					<li>
+						<span class="text-sm font-medium block text-gray-500">Ataque</span>
+						<span class="text-lg font-medium uppercase text-gray-700">{{ card.attacks | map(a => a.name) | join(', ') }}</span>
+					</li>
+				</ul>
+
+				<a href="{{ path('home') }}" class="inline-block mt-4 bg-gray-900 text-white text-sm px-6 py-2 hover:bg-gray-700 transition-colors rounded-full">Voltar</a>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block javascripts %}
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+lightGallery(document.getElementById('zoom-container'), {
+plugins: [lgZoom],
+zoom: true,
+actualSize: true,
+download: false
+});
+});
+	</script>
+{% endblock %}
