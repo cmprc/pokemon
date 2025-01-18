@@ -8,7 +8,7 @@
 	<div class="container mx-auto px-4 py-8">
 		<div class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8">
 			{% for card in cards %}
-				<a href="{{ path('details', {'id': card.id}) }}" class="bg-white shadow-sm rounded-lg overflow-hidden transition-shadow duration-300 hover:shadow-lg">
+				<a href="{{ path('details', {'id': card.id}) }}" class="pokemon-card bg-white shadow-sm rounded-lg overflow-hidden transition-shadow duration-300 hover:shadow-lg">
 					<div>
 						<img src="{{ card.images.small }}" alt="{{ card.name }}" class="w-full h-auto object-cover">
 					</div>
@@ -21,6 +21,15 @@
 					</div>
 				</a>
 			{% endfor %}
+			{% if cards is empty %}
+				<div class="col-span-6">
+					<div class="bg-white shadow-sm rounded-lg overflow-hidden">
+						<div class="p-4">
+							<h2 class="text-sm font-semibold no-results">Nenhum Pokémon encontrado</h2>
+						</div>
+					</div>
+				</div>
+			{% endif %}
 		</div>
 	</div>
 {% endblock %}

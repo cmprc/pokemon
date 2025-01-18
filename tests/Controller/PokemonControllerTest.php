@@ -69,7 +69,7 @@ class PokemonControllerTest extends WebTestCase
         $this->assertSelectorTextContains('.pokemon-name', 'Ampharos');
     }
 
-    public function testCardDetailPage(): void
+    public function testCardDetailsPage(): void
     {
         $client = self::createClient();
 
@@ -106,6 +106,23 @@ class PokemonControllerTest extends WebTestCase
 
         $this->assertResponseIsSuccessful();
         $this->assertSelectorTextContains('h1', 'Ampharos');
-        $this->assertSelectorExists('img[src="https://images.pokemontcg.io/dp3/1.png"]');
+        $this->assertSelectorExists('img[src="https://images.pokemontcg.io/dp3/1_hires.png"]');
+    }
+
+    public function testCardsListPageWithNoResults(): void
+    {
+        $client = self::createClient();
+
+        $mockedService = $this->createMock(PokemonApiService::class);
+        $mockedService->method('fetchData')
+            ->with('cards', ['query' => ['pageSize' => 24]])
+            ->willReturn([]);
+
+        $client->getContainer()->set(PokemonApiService::class, $mockedService);
+
+        $client->request('GET', '/');
+
+        $this->assertResponseIsSuccessful();
+        $this->assertSelectorTextContains('.no-results', 'Nenhum Pokémon encontrado');
     }
 }
