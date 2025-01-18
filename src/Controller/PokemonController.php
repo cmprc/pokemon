@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Service\PokemonApiService;
+use Doctrine\Migrations\Tools\Console\Command\UpToDateCommand;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Attribute\Route;
 
@@ -20,9 +21,11 @@ class PokemonController extends AbstractController
     {
         $cards = $this->pokemonApiService->fetchData('cards', [
             'query' => [
-                'pageSize' => 24
+                'pageSize' => 48
             ]
         ]);
+
+        // Todo: Implementar paginação
 
         return $this->render('pokemon/index.html.twig', [
             'cards' => $cards
