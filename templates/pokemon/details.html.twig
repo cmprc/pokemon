@@ -1,0 +1,92 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{ card.name }}
+	| Pokémon Detalhes
+{% endblock %}
+
+{% block body %}
+	<div class="container mx-auto px-4 py-8">
+
+		<section class="flex justify-center gap-8 flex-col sm:flex-row">
+			<article class="flex-shrink-0">
+				<div id="zoom-container" class="max-w-lg mx-auto">
+					<a href="{{ card.images.large }}">
+						<img src="{{ card.images.large }}" alt="{{ card.name }}" class="rounded-lg shadow-lg w-96 h-auto">
+					</a>
+				</div>
+			</article>
+
+			<article class="space-y-8">
+				<h1 class="text-5xl font-bold text-gray-800">{{ card.name }}</h1>
+
+				<ul class="space-y-3 text-lg text-gray-500">
+					<li>
+						<span class="text-sm font-medium block text-gray-500">ID</span>
+						<span class="text-lg font-medium text-gray-700">{{ card.id }}</span>
+					</li>
+					<li>
+						<span class="text-sm font-medium block text-gray-500">Tipo(s)</span>
+						<span class="text-lg font-medium text-gray-700">{{ card.types | join(', ') }}</span>
+					</li>
+
+					{% if card.resistances is defined %}
+						<li>
+							<span class="text-sm font-medium block text-gray-500">Resistência(s)</span>
+							<ul>
+								{% for resistance in card.resistances %}
+									<li class="text-lg font-medium text-gray-700">
+										{{ resistance.type }}:
+										{{ resistance.value }}
+									</li>
+								{% endfor %}
+							</ul>
+						</li>
+					{% endif %}
+
+					{% if card.weaknesses is defined %}
+						<li>
+							<span class="text-sm font-medium block text-gray-500">Fraqueza(s)</span>
+							<ul>
+								{% for weakness in card.weaknesses %}
+									<li class="text-lg font-medium text-gray-700">
+										{{ weakness.type }}:
+										{{ weakness.value }}
+									</li>
+								{% endfor %}
+							</ul>
+						</li>
+					{% endif %}
+
+					{% if card.attacks is defined %}
+						<li>
+							<span class="text-sm font-medium block text-gray-500">Ataque(s)</span>
+							<ul>
+								{% for attack in card.attacks %}
+									<li class="text-lg font-medium text-gray-700">{{ attack.name }}</li>
+								{% endfor %}
+							</ul>
+						</li>
+					{% endif %}
+				</ul>
+
+				<a href="{{ path('home') }}" class="inline-block bg-gray-900 text-white text-xs px-6 py-2 rounded-full hover:bg-gray-700 transition-colors">
+					Voltar
+				</a>
+			</article>
+		</section>
+	</div>
+{% endblock %}
+
+{% block javascripts %}
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+lightGallery(document.getElementById('zoom-container'), {
+plugins: [lgZoom],
+zoom: true,
+actualSize: true,
+download: false
+});
+});
+	</script>
+{% endblock %}

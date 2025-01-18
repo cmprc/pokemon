@@ -13,10 +13,10 @@
 						<img src="{{ card.images.small }}" alt="{{ card.name }}" class="w-full h-auto object-cover">
 					</div>
 					<div class="p-4">
-						<h2 class="text-sm font-semibold">{{ card.name }}</h2>
+						<h2 class="text-sm font-semibold pokemon-name">{{ card.name }}</h2>
 						<p class="text-sm text-gray-500">ID:
 							{{ card.id }}</p>
-						<p class="text-sm text-gray-500">Tipos:
+						<p class="text-sm text-gray-500">Tipo(s):
 							{{ card.types | join(', ') }}</p>
 					</div>
 				</a>
