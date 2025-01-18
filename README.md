@@ -1,0 +1,94 @@
+# Projeto Pokémon
+
+## Introdução
+
+Este é um projeto desenvolvido em **Symfony v7.2**, criado para apresentar uma aplicação web dinâmica que explora o universo das cartas Pokémon. A aplicação permite que os usuários visualizem uma lista de cartas disponíveis, acessem os detalhes completos de cada carta e explorem informações como tipos, fraquezas, resistências, ataques e imagens.
+
+O projeto utiliza **boas práticas de desenvolvimento**, como injeção de dependências, separação de responsabilidades e testes automatizados com **PHPUnit**, garantindo alta qualidade e confiabilidade. Além disso, a arquitetura é modular e extensível, o que facilita a integração de novas funcionalidades no futuro.
+
+---
+
+## Configuração
+
+### 1. Pré-requisitos:
+
+- **PHP** 8.1 ou superior
+- [Composer](https://getcomposer.org/)
+- Node
+- **Symfony CLI** (recomendado)
+
+### 2. Instalação:
+
+1. Faça o clone do projeto para sua máquina local
+
+2. Execute os comandos abaixo para instalar todas as dependências do projeto:
+
+```bash
+composer install
+npm install
+```
+
+# Configuração do Ambiente
+
+## 3. Configuração do Ambiente
+
+1. Duplique o arquivo .env como .env.local:
+
+   ```bash
+   cp .env .env.local
+   ```
+
+2. Configure as variáveis de ambiente no arquivo .env.local, como a api key da API de consulta para ter maior cota de chamada:
+
+```bash
+POKEMON_API_KEY=your_api_key
+```
+
+---
+
+## 4. Execução do Projeto
+
+### a. Usando o Symfony CLI:
+
+Inicie o servidor com:
+
+```bash
+symfony serve
+```
+
+### c. Acesse o Projeto:
+
+Abra o navegador e acesse:
+http://127.0.0.1:8000
+
+---
+
+# Rodar os Testes
+
+## 1. Pré-requisitos:
+
+Certifique-se de que o PHPUnit está instalado. Caso não esteja, instale via Composer:
+
+```bash
+composer require --dev phpunit/phpunit
+```
+
+## 2. Executar os Testes:
+
+Para executar todos os testes, utilize:
+
+```bash
+php bin/phpunit
+```
+
+## 3. Resultados:
+
+O PHPUnit gerará um relatório indicando os testes que passaram e eventuais falhas.
+
+---
+
+# Links Úteis
+
+- [Documentação do Symfony](https://symfony.com/doc/current/index.html)
+- [Instalação do Composer](https://getcomposer.org/doc/00-intro.md)
+- [PHPUnit - Guia Oficial](https://phpunit.de/documentation.html)
