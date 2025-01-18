@@ -6,6 +6,12 @@ Este é um projeto desenvolvido em **Symfony v7.2**, criado para apresentar uma 
 
 O projeto utiliza **boas práticas de desenvolvimento**, como injeção de dependências, separação de responsabilidades e testes automatizados com **PHPUnit**, garantindo alta qualidade e confiabilidade. Além disso, a arquitetura é modular e extensível, o que facilita a integração de novas funcionalidades no futuro.
 
+## Stack
+![Symfony](https://img.shields.io/badge/symfony-%23000000.svg?style=for-the-badge&logo=symfony&logoColor=white)
+![PHP](https://img.shields.io/badge/php-%23777BB4.svg?style=for-the-badge&logo=php&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+
 
 ## Instalação e configuração
 
@@ -68,7 +74,7 @@ O PHPUnit gerará um relatório indicando os testes que passaram e eventuais fal
 
 ---
 
-# Links Úteis
+## Links Úteis
 
 - [Documentação do Symfony](https://symfony.com/doc/current/index.html)
 - [Instalação do Composer](https://getcomposer.org/doc/00-intro.md)
