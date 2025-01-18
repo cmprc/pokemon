@@ -6,9 +6,8 @@ Este é um projeto desenvolvido em **Symfony v7.2**, criado para apresentar uma 
 
 O projeto utiliza **boas práticas de desenvolvimento**, como injeção de dependências, separação de responsabilidades e testes automatizados com **PHPUnit**, garantindo alta qualidade e confiabilidade. Além disso, a arquitetura é modular e extensível, o que facilita a integração de novas funcionalidades no futuro.
 
----
 
-## Configuração
+## Instalação e configuração
 
 ### 1. Pré-requisitos:
 
@@ -28,44 +27,26 @@ composer install
 npm install
 ```
 
-# Configuração do Ambiente
+### 3. Configuração do Ambiente
 
-## 3. Configuração do Ambiente
-
-1. Duplique o arquivo .env como .env.local:
-
-   ```bash
-   cp .env .env.local
-   ```
-
-2. Configure as variáveis de ambiente no arquivo .env.local, como a api key da API de consulta para ter maior cota de chamada:
-
+Configure as variáveis de ambiente no arquivo .env, como a API key para ter maior cota de chamadas:
 ```bash
 POKEMON_API_KEY=your_api_key
 ```
 
----
+### 4. Execução do Projeto
 
-## 4. Execução do Projeto
-
-### a. Usando o Symfony CLI:
-
-Inicie o servidor com:
-
+a. Usando o Symfony CLI, inicie o servidor com:
 ```bash
 symfony serve
 ```
 
-### c. Acesse o Projeto:
-
-Abra o navegador e acesse:
+b. Abra o navegador e acesse:
 http://127.0.0.1:8000
 
----
+## Rodar os Testes
 
-# Rodar os Testes
-
-## 1. Pré-requisitos:
+### 1. Pré-requisitos:
 
 Certifique-se de que o PHPUnit está instalado. Caso não esteja, instale via Composer:
 
@@ -73,7 +54,7 @@ Certifique-se de que o PHPUnit está instalado. Caso não esteja, instale via Co
 composer require --dev phpunit/phpunit
 ```
 
-## 2. Executar os Testes:
+### 2. Executar os Testes:
 
 Para executar todos os testes, utilize:
 
@@ -81,7 +62,7 @@ Para executar todos os testes, utilize:
 php bin/phpunit
 ```
 
-## 3. Resultados:
+### 3. Resultados:
 
 O PHPUnit gerará um relatório indicando os testes que passaram e eventuais falhas.
 
