@@ -24,9 +24,12 @@ O projeto utiliza **boas práticas de desenvolvimento**, como injeção de depen
 
 ### 2. Instalação:
 
-1. Faça o clone do projeto para sua máquina local
+1. Faça o clone do projeto para sua máquina local e entre na pasta do projeto:
+```bash
+cd pokemon
+```
 
-2. Execute os comandos abaixo para instalar todas as dependências do projeto:
+3. Execute os comandos abaixo para instalar todas as dependências do projeto:
 
 ```bash
 composer install
