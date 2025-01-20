@@ -13,7 +13,7 @@ class PokemonControllerTest extends WebTestCase
 
         $mockedService = $this->createMock(PokemonApiService::class);
         $mockedService->method('fetchData')
-            ->with('cards', ['query' => ['pageSize' => 24]])
+            ->with('cards', ['query' => ['pageSize' => 48]])
             ->willReturn([
                 [
                     "id" => "dp3-1",
@@ -115,7 +115,7 @@ class PokemonControllerTest extends WebTestCase
 
         $mockedService = $this->createMock(PokemonApiService::class);
         $mockedService->method('fetchData')
-            ->with('cards', ['query' => ['pageSize' => 24]])
+            ->with('cards', ['query' => ['pageSize' => 48]])
             ->willReturn([]);
 
         $client->getContainer()->set(PokemonApiService::class, $mockedService);
